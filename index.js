@@ -1,5 +1,5 @@
 // Import the docusign payload
-import { docusignPayload } from './docusign_payload.js';
+import { docusignPayload } from './docusign-payload.js';
 import dotenv from 'dotenv';
 
 // Load environment variables
@@ -58,8 +58,8 @@ const transformToProject = (envelopeData) => {
         "trades": [
             "Solar" // TODO: Extract trades from a custom field in the DocuSign envelope
         ],
-        "size": 10.0, // KW
-        "value": 50000, // USD
+        "size": 10.0, // TODO: Ditto
+        "value": 50000, // TODO: Ditto
         "status": "ACTIVE",
         "primaryEmail": contact.email,
         "primaryPhone": contact.phone
@@ -103,7 +103,7 @@ const loadProjectToCoperniq = async (projectData) => {
  */
 const processDocuSignWebhook = async (payload) => {
     try {
-        // Extract
+        // E
         const envelopeData = extractEnvelopeData(payload);
         
         // Validate conditions
@@ -117,11 +117,11 @@ const processDocuSignWebhook = async (payload) => {
             return null;
         }
         
-        // Transform
+        // T
         const projectData = transformToProject(envelopeData);
         console.log("Project payload:", JSON.stringify(projectData, null, 2));
         
-        // Load
+        // L
         const coperniqProject = await loadProjectToCoperniq(projectData);
         console.log("Successfully created project in Coperniq:", coperniqProject.id);
         return coperniqProject;
