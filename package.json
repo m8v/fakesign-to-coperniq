@@ -1,0 +1,16 @@
+{
+  "name": "fakesign-to-coperniq",
+  "version": "1.0.0",
+  "description": "Fakesign (Docusign-esque) to Coperniq Webhook",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@coperniq/node-sdk": "^1.0.3",
+    "dotenv": "^16.3.1"
+  },
+  "type": "module"
+}
